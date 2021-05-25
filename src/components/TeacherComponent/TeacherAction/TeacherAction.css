@@ -1,0 +1,26 @@
+.teacher-container{
+    display:flex;
+    width:100%;
+
+}
+
+.teacher-sidebar{
+    width:25%;
+    min-height:700px;
+    background: whitesmoke;
+}
+
+.teacher-sidebar ul li{
+    padding:0px 0px;
+    margin:0px 0px;
+    list-style-type: none;
+}
+
+.teacher-sidebar ul{
+    padding:10px 5px;
+    margin:20px 0px;
+}
+
+.teacher-action-container{
+    width:75%;
+}
