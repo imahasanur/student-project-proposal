@@ -12,7 +12,7 @@ const TeacherAction = () => {
     const [selectedOption, setSelectedOption] = useState("manage-project")
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/isATeacher?email=${loggedInUser.email}&designation=${designation}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/isATeacher?email=${loggedInUser.email}&designation=${designation}`)
         .then( res => res.json())
         .then( data => {
             if(data.length === 0){

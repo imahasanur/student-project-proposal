@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../../App';
 
-const ManageGroup = () => {
+const ManageGroup = ({designation}) => {
 
     const [memberDetail, setMemberDetail] = useState({});
     const [membersInfo, setMembersInfo] = useState([]);
@@ -12,7 +12,7 @@ const ManageGroup = () => {
     const [isMember, setIsMember] = useState(false)
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/isAGroupMember?email=${loggedInUser.email}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/isAGroupMember?email=${loggedInUser.email}`)
         .then( res => res.json())
         .then( data => {
             if(data.length > 0){
@@ -29,7 +29,7 @@ const ManageGroup = () => {
     },[isMember]);
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getAllGroup`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/getAllGroup`)
         .then(res => res.json())
         .then(data => {
             setMembersInfo(data);
@@ -39,7 +39,7 @@ const ManageGroup = () => {
     },[memberAdded]);
 
     const checkTotalMember= (name) =>{
-        fetch(`http://localhost:4000/memberCount?name=${name}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/memberCount?name=${name}`)
         .then( res => res.json())
         .then( data => {
             console.log(name,data, "inside checkTotal");
@@ -59,7 +59,7 @@ const ManageGroup = () => {
         console.log(data);
         data.status = "pending";
         if(!isMember){
-            fetch(`http://localhost:4000/makeAGroup`, {
+            fetch(`https://quiet-peak-36784.herokuapp.com/makeAGroup`, {
                 method:'POST',
                 headers:{'Content-Type': 'application/json'},
                 body: JSON.stringify(data)
@@ -90,7 +90,7 @@ const ManageGroup = () => {
             }
             
             if(toBeAdded){
-                fetch(`http://localhost:4000/addAMember`, {
+                fetch(`https://quiet-peak-36784.herokuapp.com/addAMember`, {
                     method:'POST',
                     headers:{'Content-Type': 'application/json'},
                     body: JSON.stringify(newMember)

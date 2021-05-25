@@ -6,7 +6,7 @@ const ManageProjects = () => {
     const [memberUpdate, setMemberUpdate] = useState(false);
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/getAllGroup`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/getAllGroup`)
         .then(res => res.json())
         .then(data => setAllGroup(data))
     }, [memberUpdate]);
@@ -15,7 +15,7 @@ const ManageProjects = () => {
         console.log(status, id);
         const newStatus = {status, id};
         console.log(newStatus);
-        fetch(`http://localhost:4000/updateStatus/${id}`,{
+        fetch(`https://quiet-peak-36784.herokuapp.com/updateStatus/${id}`,{
             method:'PATCH',
             headers:{'content-type': 'application/json'},
             body:JSON.stringify(newStatus)

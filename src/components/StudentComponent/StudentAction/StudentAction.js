@@ -11,7 +11,7 @@ const StudentAction = () => {
     const [selectedOption, setSelectedOption] = useState("manage-group")
     let {designation} = useParams();
     useEffect(()=>{
-        fetch(`http://localhost:4000/isAStudent?email=${loggedInUser.email}&designation=${designation}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/isAStudent?email=${loggedInUser.email}&designation=${designation}`)
         .then( res => res.json())
         .then( data => {
             if(data.length === 0){

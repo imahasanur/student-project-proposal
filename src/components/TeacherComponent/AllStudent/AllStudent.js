@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const AllStudent = () => {
     const [studentsInfo, setStudentsInfo] = useState([])
     useEffect(()=>{
-        fetch(`http://localhost:4000/viewStudents`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/viewStudents`)
         .then(res => res.json())
         .then(data => setStudentsInfo(data))
     },[])

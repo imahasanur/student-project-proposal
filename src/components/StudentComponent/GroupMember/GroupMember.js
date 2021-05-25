@@ -7,7 +7,7 @@ const GroupMember = () => {
     const[memberInfo, setMemberInfo] = useState({})
     const [loggedInUser, setLoggedInUser] = useContext(UserContext);
     useEffect(()=>{
-        fetch(`http://localhost:4000/isAGroupMember?email=${loggedInUser.email}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/isAGroupMember?email=${loggedInUser.email}`)
         .then( res => res.json())
         .then( data => {
             if(data.length > 0){
@@ -22,7 +22,7 @@ const GroupMember = () => {
     },[])
 
     useEffect(()=>{
-        fetch(`http://localhost:4000/searchGroup?name=${memberInfo.name}`)
+        fetch(`https://quiet-peak-36784.herokuapp.com/searchGroup?name=${memberInfo.name}`)
         .then( res => res.json())
         .then( data => {
             if(data.length > 0){
